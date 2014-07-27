@@ -53,7 +53,7 @@
         padding_bottom = parseInt(parent.css("padding-bottom"), 10);
         parent_top = parent.offset().top + border_top + padding_top;
         parent_height = parent.height();
-        restore = fixed ? (fixed = false, bottomed = false, elm.insertAfter(spacer).css({
+        restore = fixed ? (fixed = false, bottomed = false, elm./*insertAfter(spacer).*/css({
           position: "",
           top: "",
           width: "",
@@ -100,7 +100,7 @@
             fixed = false;
             offset = offset_top;
             if (el_float === "left" || el_float === "right") {
-              elm.insertAfter(spacer);
+              // elm.insertAfter(spacer);
             }
             spacer.detach();
             css = {
@@ -135,7 +135,7 @@
             css.width = elm.css("box-sizing") === "border-box" ? elm.outerWidth() + "px" : elm.width() + "px";
             elm.css(css).addClass(sticky_class).after(spacer);
             if (el_float === "left" || el_float === "right") {
-              spacer.append(elm);
+              //spacer.append(elm);
             }
             elm.trigger("sticky_kit:stick");
           }
@@ -175,7 +175,8 @@
         });
         parent.position("position", "");
         if (fixed) {
-          elm.insertAfter(spacer).removeClass(sticky_class);
+          //elm.insertAfter(spacer)
+          elm.removeClass(sticky_class);
           return spacer.remove();
         }
       };
